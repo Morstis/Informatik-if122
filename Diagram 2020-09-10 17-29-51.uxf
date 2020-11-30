@@ -1,0 +1,12 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes  </help_text><element><id>UMLClass</id><coordinates><x>90</x><y>110</y><w>210</w><h>190</h></coordinates><panel_attributes>Bruch
+--
+-zähler: int
+-nenner: int
+--
+Bruch(zähler: int, nenner: int)
++kürzen(): void
++toString(): String
++addToThis(bruch: Bruch): void
++decimal(): double
+-kleinsterTeiler(): int
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
