@@ -7,9 +7,6 @@ C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, S
 Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -19,12 +16,8 @@ public class Main {
 
   public static void main(String[] args) {
 
-    int[] x = new int[] { 1, 2, 3 };
-
-    ArrayList<String> y = new ArrayList<String>();
-    System.out.println(y.iterator().next());
-    // out("Aufgabe? [1-3]");
-    // aufgabe();
+    out("Aufgabe? [1-3]");
+    aufgabe();
   }
 
   private static int sum(int x, int y) {

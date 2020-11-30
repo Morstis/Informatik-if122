@@ -1,3 +1,5 @@
+package Mäuse;
+
 public class Mäuse {
 
     private int _jung;

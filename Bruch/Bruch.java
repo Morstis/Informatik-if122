@@ -1,3 +1,5 @@
+package Bruch;
+
 public class Bruch {
 
     private int _zähler;

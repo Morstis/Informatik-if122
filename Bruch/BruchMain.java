@@ -1,3 +1,5 @@
+package Bruch;
+
 public class BruchMain {
     public static void main(String[] args) {
         try {

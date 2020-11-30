@@ -1,3 +1,5 @@
+package Mäuse;
+
 public class MaeuseMain {
     public static void main(String[] args) {
         Mäuse mäuse = new Mäuse(6, 9, 12);

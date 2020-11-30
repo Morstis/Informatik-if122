@@ -1,3 +1,4 @@
+package Mäuse;
 
 public class Trace<T> {
 
