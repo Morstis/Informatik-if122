@@ -12,7 +12,6 @@ public class BruchMain {
             _out(b.add(b2));
 
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

@@ -2,38 +2,50 @@ package Stack;
 
 public class Stack<T> {
 
-    Knoten kRef;
+    Knoten last;
 
-    public class Knoten {
+    class Knoten {
         T data;
-        Knoten last;
+        Knoten next;
 
         Knoten(T data) {
             this.data = data;
+            this.next = null;
         }
-    }
-
-    public T pop() {
-        Knoten last = this.kRef;
-        this.kRef = last.last;
-        return last.data;
-    }
-
-    public T peek() {
-        return this.kRef.data;
     }
 
     public void push(T data) {
-        if (isEmpty()) {
-            this.kRef = new Knoten(data);
+        Knoten knoten = new Knoten(data);
+        knoten.next = last;
+        last = knoten;
+    }
+
+    public T pop() {
+        if (last != null) {
+            Knoten knoten = last;
+            last = last.next;
+            return knoten.data;
         } else {
-            Knoten last = this.kRef;
-            this.kRef = new Knoten(data);
-            this.kRef.last = last;
+            return null;
         }
     }
 
-    public boolean isEmpty() {
-        return this.kRef == null;
+    public T peek() {
+        if (last != null) {
+            return last.data;
+        } else {
+            return null;
+        }
     }
+
+    public String toString() {
+        String out = "";
+        Knoten k = last;
+        while (k != null) {
+            out = k.data + " " + out;
+            k = k.next;
+        }
+        return out;
+    }
+
 }

@@ -7,6 +7,7 @@ public class Hanoi {
     Stack<Integer>[] s = new Stack[] { new Stack<Integer>(), new Stack<Integer>(), new Stack<Integer>() };
 
     int n;
+    int operations = 0;
 
     Hanoi(int n) {
         this.n = n;
@@ -15,17 +16,18 @@ public class Hanoi {
         }
     }
 
-    public void move(int n, int from, int to) {
-
+    public void move(int n, int from, int to, int third) {
+        this.operations++;
         if (n == 1) {
             s[to].push(s[from].pop());
-            System.out.println(toString()
-
-            );
+            System.out.println(toString());
 
         } else {
-            this.move(n - 1, 0, 2);
-            this.move(n - 1, 0, 1);
+            this.move(n - 1, from, third, to);
+            s[to].push(s[from].pop());
+            System.out.println(toString());
+            this.move(n - 1, third, to, from);
+
         }
     }
 
