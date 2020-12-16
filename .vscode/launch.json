@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-BruchMain<java_323c6ff6>",
+            "request": "launch",
+            "mainClass": "Bruch.BruchMain",
+            "projectName": "java_323c6ff6"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<java_323c6ff6>",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "java_323c6ff6"
+        },
+        {
+            "type": "java",
+            "name": "Debug Matrix-Main<java_323c6ff6>(1)",
+            "request": "launch",
+            "mainClass": "Matrix.Main",
+            "projectName": "java_323c6ff6"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MaeuseMain<java_323c6ff6>",
+            "request": "launch",
+            "mainClass": "Mäuse.MaeuseMain",
+            "projectName": "java_323c6ff6"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ggT<java_323c6ff6>",
+            "request": "launch",
+            "mainClass": "Mäuse.ggT",
+            "projectName": "java_323c6ff6"
+        },
+        {
+            "type": "java",
+            "name": "Debug Stack-Main<java_323c6ff6>(2)",
+            "request": "launch",
+            "mainClass": "Stack.Main",
+            "projectName": "java_323c6ff6"
+        }
+    ]
+}
