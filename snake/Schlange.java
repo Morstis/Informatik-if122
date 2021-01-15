@@ -58,4 +58,10 @@ public class Schlange<T> {
         }
         return s;
     }
+
+    public void loescheAlles() {
+        this.kopf = null;
+        this.schwanz = null;
+        this.laenge = 0;
+    }
 }
