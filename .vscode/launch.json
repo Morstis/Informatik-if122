@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
+            "mainClass": "keep_or_throw.Main",
+            "projectName": "java_323c6ff6"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
             "mainClass": "platzDa.Main",
             "projectName": "java_323c6ff6"
         },
