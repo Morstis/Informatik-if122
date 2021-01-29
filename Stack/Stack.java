@@ -3,6 +3,7 @@ package Stack;
 public class Stack<T> {
 
     Knoten last;
+    public int size;
 
     class Knoten {
         T data;
@@ -18,12 +19,14 @@ public class Stack<T> {
         Knoten knoten = new Knoten(data);
         knoten.next = last;
         last = knoten;
+        size++;
     }
 
     public T pop() {
         if (last != null) {
             Knoten knoten = last;
             last = last.next;
+            size--;
             return knoten.data;
         } else {
             return null;

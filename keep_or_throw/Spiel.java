@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import Menge.Menge;
 import Stack.Stack;
 
 public class Spiel {
@@ -24,15 +25,30 @@ public class Spiel {
         weg = new Stack<Karte>();
 
         // Zufällige Reihenfolge erzeugen
-        ArrayList<Integer> alle = new ArrayList<Integer>();
-        for (int i = 0; i < size; i++) {
-            alle.add(i);
-        }
+        // Let's replace that beauty with the worst piece of code
+        // ever created
+        // ArrayList<Integer> alle = new ArrayList<Integer>();
+        // for (int i = 0; i < size; i++) {
+        // alle.add(i);
+        // }
+        // for (int i = 0; i < size; i++) {
+        // int random = r.nextInt(size - i);
+        // gemischt.push(new Karte(alle.get(random)));
+        // alle.remove(random);
+        // }
 
-        for (int i = 0; i < size; i++) {
-            int random = r.nextInt(size - i);
-            gemischt.push(new Karte(alle.get(random)));
-            alle.remove(random);
+        // Look at that. Es skaliert nicht einmal. Wunderbar
+        Menge<Integer> m = new Menge<Integer>();
+        for (int i = 0; i < 15; i++) {
+            m.add(i);
+        }
+        while (gemischt.size < 10) {
+            int random = r.nextInt(15);
+            if (m.contains(random)) {
+                gemischt.push(new Karte(random));
+                m.remove(random);
+            }
+
         }
 
         // Start
