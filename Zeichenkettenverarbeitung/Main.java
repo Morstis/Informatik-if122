@@ -42,7 +42,7 @@ public class Main {
         char[] wort = randomString.toCharArray();
 
         Scanner s = new Scanner(System.in);
-
+        int versuche = 0;
         while (contains(unerraten, '_')) {
             for (char d : unerraten) {
                 System.out.print(d + " ");
@@ -56,10 +56,11 @@ public class Main {
                     unerraten[i] = wort[i];
                 }
             }
-
+            versuche++;
         }
 
-        System.out.print("Fertig! Das Wort war: " + randomString);
+        System.out.println("Fertig! Das Wort war: " + randomString);
+        System.out.println("Du hast: " + versuche + " Versuche gebraucht.");
 
         s.close();
 
