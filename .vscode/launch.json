@@ -8,6 +8,20 @@
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
+            "mainClass": "Zeichenkettenverarbeitung.Main",
+            "projectName": "java_323c6ff6"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "StringTest.Main",
+            "projectName": "java_323c6ff6"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
             "mainClass": "Menge.Main",
             "projectName": "java_323c6ff6"
         },
