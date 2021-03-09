@@ -22,7 +22,7 @@ public class Main {
         } else {
             System.out.println("Gib entweder 1 oder 2 ein");
         }
-        System.out.println("Gub einen Text an: ");
+        System.out.println("Gib einen Text an: ");
         int[] out = c.haeufigkeitsanalyse(s.next());
 
         for (int i = 0; i < out.length; i++) {
