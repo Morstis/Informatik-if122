@@ -1,5 +1,8 @@
 package Menge;
 
+import java.lang.reflect.Array;
+import java.util.function.Function;
+
 // Jap ich mache kein extends Stack<T> auch wenn es schöner wäre, aber 
 // dann müsste ich nen Iterator schreiben, oder die Knoten public machen. 
 // Beides ist momentan nicht wünschenswert.
@@ -7,6 +10,8 @@ package Menge;
 public class Menge<T> {
 
     Knoten last;
+
+    int length;
 
     class Knoten {
         T data;
@@ -23,6 +28,7 @@ public class Menge<T> {
             Knoten knoten = new Knoten(element);
             knoten.next = last;
             last = knoten;
+            length++;
         }
     }
 
@@ -55,6 +61,8 @@ public class Menge<T> {
                 k = k.next;
 
             }
+            length--;
+
         }
     }
 
@@ -62,10 +70,23 @@ public class Menge<T> {
         return last != null;
     }
 
+    // new T[] geht leider nicht...
+    public T[] toArray() {
+        String out = "";
+        Knoten k = last;
+
+        while (k != null) {
+            out = k.data + "," + out;
+            k = k.next;
+        }
+        return (T[]) out.split(",");
+    }
+
     @Override
     public String toString() {
         String out = "";
         Knoten k = last;
+
         while (k != null) {
             out = k.data + " " + out;
             k = k.next;

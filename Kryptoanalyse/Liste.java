@@ -1,15 +1,16 @@
 package Kryptoanalyse;
 
-public class Liste<T extends Vergleichbar> {
+public class Liste<T> {
 
-    Knoten first;
+    private Knoten first;
+    public int length;
 
     Liste() {
     }
 
     Liste(T[] input) {
         for (T t : input) {
-            this.hinzufuegen(t);
+            this.add(t);
         }
     }
 
@@ -23,20 +24,35 @@ public class Liste<T extends Vergleichbar> {
         }
     }
 
-    public boolean hinzufuegen(T element) {
+    public boolean addIfNotIn(T element) {
         if (first == null) {
             first = new Knoten(element);
+            this.length++;
             return true;
+
         } else {
             if (!istElement(element)) {
                 Knoten neuerKnoten = new Knoten(element);
                 neuerKnoten.next = first;
                 first = neuerKnoten;
+                this.length++;
                 return true;
             } else {
                 return false;
             }
         }
+    }
+
+    public void add(T element) {
+        if (first == null) {
+            first = new Knoten(element);
+        } else {
+            Knoten neuerKnoten = new Knoten(element);
+            neuerKnoten.next = first;
+            first = neuerKnoten;
+        }
+        this.length++;
+
     }
 
     public boolean istElement(T element) {
@@ -59,9 +75,11 @@ public class Liste<T extends Vergleichbar> {
             if (knoten.daten.equals(element)) {
                 if (vorgaenger == null) {
                     first = first.next;
+
                 } else {
                     vorgaenger.next = knoten.next;
                 }
+                this.length--;
                 return true;
             }
             vorgaenger = knoten;
@@ -70,21 +88,41 @@ public class Liste<T extends Vergleichbar> {
         return false;
     }
 
-    public void sortieren() {
-        Knoten k1 = first, k2;
-        int h;
-        while (k1 != null && k1.next != null) {
-            k2 = k1.next;
-            while (k2 != null) {
-                if (k2.daten.kleiner(k1.daten)) {
-                    h = k1.daten.wert;
-                    k1.daten.wert = k2.daten.wert;
-                    k2.daten.wert = h;
-                }
-                k2 = k2.next;
+    public T get(int index) {
+        Knoten knoten = first;
+
+        for (int i = 0; i <= index; i++) {
+            if (i == index) {
+                return knoten.daten;
             }
-            k1 = k1.next;
+            knoten = knoten.next;
         }
+        return null;
+    }
+
+    public T replace(int index, T data) {
+        Knoten knoten = first;
+
+        for (int i = 0; i <= index; i++) {
+            if (i == index) {
+                knoten.daten = data;
+            }
+            knoten = knoten.next;
+        }
+        return null;
+    }
+
+    public Liste<Integer> getIndexesofData(T data) {
+        Liste<Integer> indexes = new Liste<Integer>();
+        Knoten knoten = first;
+        for (int i = 0; knoten != null; i++) {
+            if (knoten.daten.equals(data)) {
+                indexes.add(i);
+            }
+            knoten = knoten.next;
+        }
+        return indexes;
+
     }
 
     public String toString() {

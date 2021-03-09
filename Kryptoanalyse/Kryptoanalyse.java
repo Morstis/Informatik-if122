@@ -6,10 +6,10 @@ import Menge.Menge;
 
 public class Kryptoanalyse {
 
-    public Liste<Zahl> text = new Liste<Zahl>();
+    public Liste<String> text = new Liste<String>();
 
     // Menge, um Dopplungen zu vermeiden;
-    private Menge<String> possibilities = new Menge<String>();
+    private Liste<String> possibilities = new Liste<String>();
 
     Kryptoanalyse() {
         Scanner lies = new Scanner(System.in);
@@ -27,19 +27,66 @@ public class Kryptoanalyse {
         int n = lies.nextInt();
 
         for (int i = 0; i < textarray.length - n; i++) {
-            String possibility = "";
+            // Ausgesprochen entel
+            String ntl = "";
             for (int j = 0; j < n; j++) {
-                possibility += textarray[i + j];
+                ntl += textarray[i + j];
             }
-            this.possibilities.add(possibility);
+            this.possibilities.addIfNotIn(ntl);
+            this.text.add(ntl);
+
         }
-        System.out.println(this.possibilities);
+
+        Liste<NamePosition> pos = calcAllDistances();
+
+        Liste<EntfernungHaef> alleEntfs = new Liste<EntfernungHaef>();
+
+        for (int i = 0; i < pos.length; i++) {
+            NamePosition elem = pos.get(i);
+            Liste<Integer> elemEntfs = elem.calcEntfs();
+            for (int j = 0; j < elemEntfs.length; j++) {
+                int entfernung = elemEntfs.get(j);
+
+                if (i == 0) {
+                    alleEntfs.addIfNotIn(new EntfernungHaef(entfernung));
+
+                } else {
+
+                    EntfernungHaef entfh = alleEntfs.get(j);
+                    if (entfh.entfernung == entfernung) {
+                        entfh.increase();
+                        alleEntfs.replace(j, entfh);
+                        break;
+                    } else {
+                        alleEntfs.addIfNotIn(new EntfernungHaef(entfernung));
+                    }
+
+                }
+
+            }
+            // System.out.println(elem.name + "\t" + elem.positions + "\t" + elemEntfs);
+
+        }
+        System.out.println(alleEntfs);
+
+        for (int i = 0; i < alleEntfs.length; i++) {
+            System.out.println(alleEntfs.get(i));
+
+        }
 
     }
 
-    public int[] calcAllDistances() {
+    public Liste<NamePosition> calcAllDistances() {
+        Liste<NamePosition> namePositions = new Liste<NamePosition>();
+        for (int i = 0; i < possibilities.length; i++) {
+            String searchString = this.possibilities.get(i);
+            Liste<Integer> indexes = this.text.getIndexesofData(searchString);
+            if (indexes.length > 1) {
+                namePositions.add(new NamePosition(searchString, indexes));
+            }
+        }
 
-        return null;
+        return namePositions;
     }
 
 }
